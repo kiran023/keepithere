@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-
 export const AddTodo = (props) => {
+ 
   const [title, settitle] = useState("")
   const [desc, setdesc] = useState("")
   const submit = (e) =>{
@@ -16,7 +16,7 @@ export const AddTodo = (props) => {
   }
   return (
     <div className="container">
-      <h2 className="my-3">Add Todo</h2>
+      <h2 className="my-5">hey! {props.user.displayName}</h2>
       <form onSubmit={submit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">Todo Title</label>

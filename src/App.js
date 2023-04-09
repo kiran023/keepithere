@@ -1,55 +1,30 @@
-
-// import React from 'react'
-import { Todos } from './Mycomponents/Todos';
-import { AddTodo } from './Mycomponents/AddTodo';
-import { Navbar } from './Mycomponents/Navbar';
-import React, { useState, useEffect } from 'react';
+import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import { Signin } from "./Mycomponent/Signin"
+import { Homepage } from "./Mycomponent/Homepage"
+import { Account } from "./Mycomponent/Account"
+import { AuthContextProvider } from './Mycomponent/context/AuthContext';
 
 function App() {
-  let initTodo;
-  if (localStorage.getItem("todos") === null)
-    initTodo = [];
-  else
-    initTodo = JSON.parse(localStorage.getItem("todos"));
-
-
-  const onDelete = (todo) => {
-    settodos(todos.filter(
-      (e) => {
-        return e != todo;
-      }
-    ))
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }
-
-
-  const addTodo = (title, desc) => {
-    let sno;
-    if (todos.length == 0)
-      sno = 1;
-    else sno = todos[todos.length - 1].sno + 1;
-
-    const myTodo = {
-      sno: sno,
-      title: title,
-      desc: desc
-    }
-    console.log(myTodo);
-    settodos([...todos, myTodo]);
-  }
-
-  const [todos, settodos] = useState(initTodo);
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos])
-
-
   return (
     <>
-      <Navbar />
-      <AddTodo addTodo={addTodo} />
-      <Todos todos={todos} onDelete={onDelete} />
+     <AuthContextProvider>
+     <Router>
+        <Routes>
+          <Route path="/account" element={<Account />}/>
+          <Route path="/signin" element={<Signin/>}/>
+          <Route path="/" element={<Homepage />}/>
+        </Routes>
+      </Router>
+    </AuthContextProvider>
+    
     </>
-  )
-};
+  );
+}
+
 export default App;
