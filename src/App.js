@@ -8,20 +8,20 @@ import {
 import { Signin } from "./Mycomponent/Signin"
 import { Homepage } from "./Mycomponent/Homepage"
 import { Account } from "./Mycomponent/Account"
-import { AuthContextProvider } from './Mycomponent/context/AuthContext';
+import { Createpage } from './Mycomponent/Createpage';
+// import { AuthContextProvider } from './Mycomponent/context/AuthContext';
 
 function App() {
   return (
     <>
-     <AuthContextProvider>
      <Router>
         <Routes>
           <Route path="/account" element={<Account />}/>
-          <Route path="/signin" element={<Signin/>}/>
+          {/* <Route path="/signin" element={<Signin/>}/> */}
           <Route path="/" element={<Homepage />}/>
+          <Route path="/register" element={<Createpage />}/>
         </Routes>
       </Router>
-    </AuthContextProvider>
     
     </>
   );

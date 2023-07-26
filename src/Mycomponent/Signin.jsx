@@ -3,31 +3,42 @@ import { GoogleButton } from 'react-google-button'
 import {
   Link
 } from "react-router-dom";
-import { UserAuth} from './context/AuthContext';
+// import { UserAuth} from './context/AuthContext';
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate, } from 'react-router-dom';
 import { useEffect } from 'react';
 
 
 export const Signin = () => {
-const {googleSignIn,user}= UserAuth();
+// const {googleSignIn,user}= UserAuth();
+const auth = getAuth();
+const provider = new GoogleAuthProvider();
 const navigate= useNavigate()
 
-  const handleGoogleSignIn=async()=>{
+provider.setCustomParameters({
+  prompt: 'select_account'
+});
+  const handleGoogleSignIn=()=>{
+    signInWithPopup(auth, provider)
+    .then((response) => {
+      console.log(response.user);
+      console.log(response.user.displayName);
+      localStorage.setItem("name",JSON.stringify(response.user.displayName));
+      localStorage.setItem("email",JSON.stringify(response.user.email));
+      // clearData();
+      navigate('/account')
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
 
-    try{
-      await googleSignIn();
-
-    }
-    catch{
-      alert("error")
-    }
   };
 
-  useEffect(()=>{
-    if(user!=null)
-    navigate('/account');
+  // useEffect(()=>{
+  //   if(user!=null)
+  //   navigate('/account');
 
-  },[user]);
+  // },[user]);
 
 
   return (

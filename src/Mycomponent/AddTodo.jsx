@@ -15,8 +15,8 @@ export const AddTodo = (props) => {
 
   }
   return (
-    <div className="container">
-      <h2 className="my-5">hey! {props.user.displayName}</h2>
+    <div className="container" id='box-1'>
+      {/* <h2 className="my-5">hey! {props.user}</h2> */}
       <form onSubmit={submit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">Todo Title</label>
@@ -26,7 +26,7 @@ export const AddTodo = (props) => {
           <label htmlFor="desc" className="form-label">Todo Description</label>
           <input type="text" value={desc} onChange={(e)=>{setdesc(e.target.value)}} className="form-control" id="desc"/>
         </div>
-        <button type="submit" className="btn btn-success ">Add Todo</button>
+        <button type="submit" className="btn btn-primary">Add Todo</button>
       </form>
     </div>
   )

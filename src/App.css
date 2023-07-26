@@ -1,3 +1,33 @@
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  background-image: linear-gradient(to right, #141e30, #243b55);
+}
+
+.main-body{
+  width: 90%;
+  margin: auto;
+  
+}
+
+.container{
+  width: 80%;
+  padding: 0px;
+}
+#box-1{
+  padding: 5%;
+  border-radius: 5px;
+  margin-bottom: 5%;
+  background-color: white;
+}
+
+.inner-box{
+  border-radius: 5px;
+  padding: 2%;
+  margin-bottom: 10px;
+  background-color: white;
+}
 .signin-box{
   display: flex;
     justify-content: center; 
@@ -8,31 +38,72 @@
 .mybtn{
   border: none;
   background-color: rgb(6, 6, 169);
-  color: white;
+  color: rgb(255, 255, 255);
   margin: 5% 0%;
   height: 9%;
   font-size: 1.1rem;
 }
-.or {
-    
+
+/* form */
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  border: solid 0.05px rgba(145, 144, 144, 0.283);
+  background-color: white;
+  border-radius: 7px;
+}
+.form-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+}
+.form-item{
+  width: 80%;
+  margin: auto;
+  margin-bottom: 5%;
+}
+.form-item h1{
+  width: 100%;
   text-align: center;
-  margin: 21px;
+  margin-top: 5%;
 }
-.or:before, .or:after {
-  background-color: #777575;
-  content: "";
-  display: inline-block;
-  height: 0.5px;
-  position: relative;
-  vertical-align: middle;
-  width: 54%;
+.fill{
+  margin: 10px 0;
 }
-.or:before {
-  right: 0.5em;
-  margin-left: -50%;
+.fill input{
+  width: 100%;
+  margin: 5px 0;
+  padding: 5px;
+  border: solid 0.05px rgba(145, 144, 144, 0.283);
+  border-radius: 4px;
 }
-legend:after {
-  left: 0.5em;
-  margin-right: -50%;
+.submit-btn{
+  width:180px;
+  padding: 8px;
+  margin: 6px 5px  10px 0;
+  border-radius: 5px;
+  border: none;
+  background-color: #3674bb;
+  color: white;
+  cursor: pointer;
 }
+.alter{
+  text-decoration: underline;
+  margin: 0 6px;
+
+}
+.btn{
+  margin: 10px 0; 
+  margin-right:8px;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+
+}
+
 
